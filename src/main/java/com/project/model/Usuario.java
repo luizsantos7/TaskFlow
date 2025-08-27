@@ -1,4 +1,4 @@
-package com.taskflow.model;
+package com.project.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
