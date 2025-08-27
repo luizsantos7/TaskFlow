@@ -2,6 +2,7 @@ package com.project.controler;
 
 import com.project.model.Usuario;
 import com.project.repository.UsuarioRepository;
+import com.project.service.UsuarioService;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,22 +14,13 @@ import java.util.Optional;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("")
+@RequestMapping("/usuarios")
 @CrossOrigin(origins="*", allowedHeaders = "*")
 public class UsuarioController {
     //getAll, getById, getByNome, getByUsuario, post, put, delete(menos importante de fazer)
 
     @Autowired
-    private UsuarioRepository usuarioRepository;
+    private UsuarioService usuarioService;
 
-    @GetMapping("/users/{id}")
-    public ResponseEntity<Optional> getById(@PathVariable UUID id){
-        return ResponseEntity.ok(usuarioRepository.findById(id));
-    }
-
-    @GetMapping("/users")
-    public ResponseEntity<List<Usuario>> getAll(){
-        return ResponseEntity.ok(usuarioRepository.findAll());
-    }
 
 }

@@ -19,9 +19,10 @@ public class Usuario {
     @NotBlank(message = "O atributo nome é obrigatório")
     private String nome;
 
-    @Email
-    @NotNull(message = "O atributo email é obrigatório")
-    private String email;
+    @NotBlank(message = "O Atributo email é Obrigatório!")
+    @Email(message = "O Atributo deve ser um email válido!")
+    @Size(max = 255, message = "O e-mail não pode exceder 255 caracteres.") // Adicionado Size
+    private String usuario;
 
     @NotNull(message = "O atributo senha é obrigatório")
     @Size(min = 8, message = "O atributo deve ter no mínimo 8 caracteres")
@@ -30,12 +31,12 @@ public class Usuario {
     @Size(max = 5000, message = "O link da foto não pode ser maior do que 5000 caracteres")
     private String foto;
 
-    public String getEmail() {
-        return email;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
     public String getFoto() {
